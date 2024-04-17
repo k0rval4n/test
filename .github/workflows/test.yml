@@ -13,4 +13,4 @@ jobs:
 
     steps:
       - name: read
-        run: echo "Issue title ${{ github.event.comment.body }}"
+        run: echo "Issue title ${{ github.event.issue.title }}"
