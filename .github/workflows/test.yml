@@ -13,7 +13,8 @@ jobs:
 
     steps:
       - name: read
-        run: echo "Issue title $TITLE"; echo "Issue body $BODY"
+        run: echo "Issue title\n$TITLE"; echo "Issue body\n$BODY"; echo "Issue id\n$ID"
         env:
           TITLE: ${{ github.event.issue.title }}
           BODY: ${{ github.event.issue.body }}
+          ID: ${{ github.event.issue.id }}
