@@ -1,0 +1,19 @@
+name: Test2
+
+on:
+  issues:
+    types: [opened, closed, reopened, deleted]
+
+jobs:
+  issue-list:
+    runs-on: ubuntu-latest
+
+    permissions:
+          contents: write
+          pull-requests: write
+
+    steps:
+      - name: read
+      - run: |
+        echo "Issue title: ${{ github.event.issue.title }}"
+        echo "Issue body: ${{ github.event.issue.body }}"
