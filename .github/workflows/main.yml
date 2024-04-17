@@ -1,3 +1,20 @@
-uses: seed-of-apricot/issue-list-readme@v1.1.0
-with:
-  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+name: Test
+
+on:
+  issues:
+    types: [opened, closed, reopened, deleted]
+
+jobs:
+  issue-list:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: rewriteReadme
+        uses: seed-of-apricot/issue-list-readme@v1.1.0
+        with:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: '<!-- userHistoriesTable -->'
+          labels: 'good first issue'
+          state: 'open'
