@@ -17,4 +17,4 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           pattern: '<!-- userHistoriesTable -->'
           labels: 'good first issue'
-          state: 'open'
+          state: 'all'
