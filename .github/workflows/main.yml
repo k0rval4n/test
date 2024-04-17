@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
       - name: rewriteReadme
         uses: seed-of-apricot/issue-list-readme@v1.1.0
         with:
@@ -16,3 +19,15 @@ jobs:
           pattern: '<!-- userHistoriesTable -->'
           labels: 'good first issue'
           state: 'all'
+  
+      - name: add-and-commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: README.md has been re-written by Github Actions.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+      - name: push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
