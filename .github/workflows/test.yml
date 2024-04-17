@@ -18,3 +18,4 @@ jobs:
           TITLE: ${{ github.event.issue.title }}
           BODY: ${{ github.event.issue.body }}
           ID: ${{ github.event.issue.id }}
+          STATE: ${{ github.event.issue.state }}
